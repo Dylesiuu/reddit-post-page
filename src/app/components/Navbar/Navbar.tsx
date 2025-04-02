@@ -10,7 +10,6 @@ const Navbar = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
-    console.log(e.target.value);
   };
   return (
     <div className='w-full h-13 bg-gray shadow-md p-3 border-b border-b-gray-800'>
