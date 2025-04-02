@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Rethink_Sans, Roboto } from "next/font/google";
-import ResponsiveNavbar from "./components/Home/Navbar/ResponsiveNavbar";
+import { Roboto } from "next/font/google";
+import ResponsiveNavbar from "./components/Navbar/ResponsiveNavbar";
 
-const font = Rethink_Sans({
+const font = Roboto({
   weight: ["400", "500", "600", "700", '800'],
   subsets: ["latin"],
 });
