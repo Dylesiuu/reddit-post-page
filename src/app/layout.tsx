@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Roboto } from "next/font/google";
-import ResponsiveNavbar from "./components/Navbar/ResponsiveNavbar";
+import Navbar from "./components/Navbar/Navbar";
+import MobileNavbar from "./components/Navbar/MobileNavbar";
 
 const font = Roboto({
   weight: ["400", "500", "600", "700", '800'],
@@ -31,12 +32,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${font.className} antialiased`}
       >
-        <ResponsiveNavbar />
+        <Navbar />
+        <MobileNavbar/>
+
         {children}
       </body>
     </html>
