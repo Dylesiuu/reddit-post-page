@@ -11,6 +11,7 @@ const MobileNavbar = () => {
     communities: false,
     resources: false,
   });
+  const [activeItem, setActiveItem] = useState<string>("Home");
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -21,6 +22,10 @@ const MobileNavbar = () => {
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const handleMenuClick = (item: string) => {
+    setActiveItem(item);
   };
 
   return (
@@ -40,17 +45,45 @@ const MobileNavbar = () => {
         <div className='flex flex-col h-full justify-items-end w-full space-x-1 overflow-y-auto'>
           {/* Top Section */}
             <ul className="p-4 space-y-2 border-b border-gray-700 text-sm">
-            <li className="hover:bg-gray-700 p-2 rounded">Home</li>
-            <li className="hover:bg-gray-700 p-2 rounded">Popular</li>
-            <li className="hover:bg-gray-700 p-2 rounded">Explore</li>
-            <li className="hover:bg-gray-700 p-2 rounded">All</li>
+            <li
+              className={`p-2 rounded cursor-pointer ${
+                activeItem === "Home" ? "bg-gray-700" : "hover:bg-gray-800/25"
+              }`}
+              onClick={() => handleMenuClick("Home")}
+            >
+              Home
+            </li>
+            <li
+              className={`p-2 rounded cursor-pointer ${
+                activeItem === "Popular" ? "bg-gray-700" : "hover:bg-gray-800/25"
+              }`}
+              onClick={() => handleMenuClick("Popular")}
+            >
+              Popular
+            </li>
+            <li
+              className={`p-2 rounded cursor-pointer ${
+                activeItem === "Explore" ? "bg-gray-700" : "hover:bg-gray-800/25"
+              }`}
+              onClick={() => handleMenuClick("Explore")}
+            >
+              Explore
+            </li>
+            <li
+              className={`p-2 rounded cursor-pointer ${
+                activeItem === "All" ? "bg-gray-700" : "hover:bg-gray-800/25"
+              }`}
+              onClick={() => handleMenuClick("All")}
+            >
+              All
+            </li>
           </ul>
 
           {/* Custom Feeds */}
           <ul className="p-4 space-y-2 border-b border-gray-700">
             <li>
               <div
-                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                className="flex justify-between items-center hover:bg-gray-800/25 p-2 rounded cursor-pointer"
                 onClick={() => toggleSection("customFeeds")}
               >
                 <span className='text-gray-600 text-sm'>CUSTOM FEEDS</span>
@@ -58,9 +91,9 @@ const MobileNavbar = () => {
               </div>
               {expandedSections.customFeeds && (
                 <ul className="pl-4 space-y-2 text-sm">
-                  <li className="hover:bg-gray-700 p-2 rounded ">Feed 1</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Feed 2</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Feed 3</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded ">Feed 1</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Feed 2</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Feed 3</li>
                 </ul>
               )}
             </li>
@@ -70,7 +103,7 @@ const MobileNavbar = () => {
           <ul className="p-4 space-y-2 border-b border-gray-700">
             <li>
               <div
-                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                className="flex justify-between items-center hover:bg-gray-800/25 p-2 rounded cursor-pointer"
                 onClick={() => toggleSection("recent")}
               >
                 <span className='text-gray-600 text-sm'>RECENT</span>
@@ -78,9 +111,9 @@ const MobileNavbar = () => {
               </div>
               {expandedSections.recent && (
                 <ul className="pl-4 space-y-2 text-sm">
-                  <li className="hover:bg-gray-700 p-2 rounded">Recent Item 1</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Recent Item 2</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Recent Item 3</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Recent Item 1</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Recent Item 2</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Recent Item 3</li>
                 </ul>
               )}
             </li>
@@ -90,7 +123,7 @@ const MobileNavbar = () => {
           <ul className="p-4 space-y-2 border-b border-gray-700">
             <li>
               <div
-                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                className="flex justify-between items-center hover:bg-gray-800/25 p-2 rounded cursor-pointer"
                 onClick={() => toggleSection("communities")}
               >
                 <span className='text-gray-600 text-sm'>COMMUNITIES</span>
@@ -98,9 +131,9 @@ const MobileNavbar = () => {
               </div>
               {expandedSections.communities && (
                 <ul className="pl-4 space-y-2 text-sm">
-                  <li className="hover:bg-gray-700 p-2 rounded">Community Item 1</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Community Item 2</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Community Item 3</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Community Item 1</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Community Item 2</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Community Item 3</li>
                 </ul>
               )}
             </li>
@@ -109,7 +142,7 @@ const MobileNavbar = () => {
           <ul className="p-4 space-y-2 border-b border-gray-700">
             <li>
               <div
-                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                className="flex justify-between items-center hover:bg-gray-800/25 p-2 rounded cursor-pointer"
                 onClick={() => toggleSection("resources")}
               >
                 <span className='text-gray-600 text-sm'>RESOURCES</span>
@@ -117,19 +150,19 @@ const MobileNavbar = () => {
               </div>
               {expandedSections.resources && (
                 <ul className="pl-4 space-y-2 text-sm">
-                  <li className="hover:bg-gray-700 p-2 rounded">Resource Item 1</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Resource Item 2</li>
-                  <li className="hover:bg-gray-700 p-2 rounded">Resource Item 3</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Resource Item 1</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Resource Item 2</li>
+                  <li className="hover:bg-gray-800/25 p-2 rounded">Resource Item 3</li>
                 </ul>
               )}
             </li>
           </ul>
           {/* Bottom Section */}        
           <ul className="p-4 space-y-2 text-sm">
-            <li className="hover:bg-gray-700 p-2 rounded">Communities</li>
-            <li className="hover:bg-gray-700 p-2 rounded">Best of Reddit</li>
-            <li className="hover:bg-gray-700 p-2 rounded">Topics</li>
-            <li className="hover:bg-gray-700 p-2 rounded">All</li>
+            <li className="hover:bg-gray-800/25 p-2 rounded">Communities</li>
+            <li className="hover:bg-gray-800/25 p-2 rounded">Best of Reddit</li>
+            <li className="hover:bg-gray-800/25 p-2 rounded">Topics</li>
+            <li className="hover:bg-gray-800/25 p-2 rounded">All</li>
           </ul>
         </div>
         {/* Toggle Button */}
