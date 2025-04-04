@@ -36,10 +36,9 @@ const MobileNavbar = () => {
       <div
         className={`fixed top-15 left-0 h-full w-64 bg-[var(--background)] border-r border-r-gray-800 text-white transform transition-transform duration-500 z-[1000] ${
           isOpen ? 'translate-x-0' : '-translate-x-58'
-        }`}
-      >
+        }`}>
         <div className='flex flex-col h-full justify-items-end w-full space-x-1 overflow-y-auto'>
-          {/* Top Section */}        
+          {/* Top Section */}
             <ul className="p-4 space-y-2 border-b border-gray-700 text-sm">
             <li className="hover:bg-gray-700 p-2 rounded">Home</li>
             <li className="hover:bg-gray-700 p-2 rounded">Popular</li>
@@ -135,10 +134,10 @@ const MobileNavbar = () => {
         </div>
         {/* Toggle Button */}
         <button
-          className="fixed flex justify-end items-center w-full -right-7 top-5 z-[1003] text-gray-800 p-2 rounded "
+          className="fixed flex justify-end items-center -right-7 top-5 z-[1003] text-gray-800 p-2 rounded "
           onClick={toggleNavbar}>
             {isOpen ? <BiChevronLeftCircle size={40} /> : <BiMenu size={40} />}
-          </button>      
+          </button>
       </div>
     </div>
   );
