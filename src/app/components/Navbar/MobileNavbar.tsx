@@ -1,13 +1,26 @@
 "use client";
 
 import React, { useState } from 'react';
-import { BiChevronLeftCircle } from 'react-icons/bi';
+import { BiChevronDown, BiChevronLeftCircle, BiChevronUp, BiMenu } from 'react-icons/bi';
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({
+    feeds: false,
+    recent: false,
+    communities: false,
+    resources: false,
+  });
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleSection = (section: string) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
   };
 
   return (
@@ -25,20 +38,106 @@ const MobileNavbar = () => {
           isOpen ? 'translate-x-0' : '-translate-x-58'
         }`}
       >
-        <div className='flex flex-col items-center h-full justify-between w-full space-x-1'>
-  `        <ul className="p-4 space-y-2">
+        <div className='flex flex-col h-full justify-items-end w-full space-x-1 overflow-y-auto'>
+          {/* Top Section */}        
+            <ul className="p-4 space-y-2 border-b border-gray-700 text-sm">
             <li className="hover:bg-gray-700 p-2 rounded">Home</li>
             <li className="hover:bg-gray-700 p-2 rounded">Popular</li>
             <li className="hover:bg-gray-700 p-2 rounded">Explore</li>
             <li className="hover:bg-gray-700 p-2 rounded">All</li>
           </ul>
 
+          {/* Custom Feeds */}
+          <ul className="p-4 space-y-2 border-b border-gray-700">
+            <li>
+              <div
+                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                onClick={() => toggleSection("customFeeds")}
+              >
+                <span className='text-gray-600 text-sm'>CUSTOM FEEDS</span>
+                {expandedSections.customFeeds ? <BiChevronUp /> : <BiChevronDown />}
+              </div>
+              {expandedSections.customFeeds && (
+                <ul className="pl-4 space-y-2 text-sm">
+                  <li className="hover:bg-gray-700 p-2 rounded ">Feed 1</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Feed 2</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Feed 3</li>
+                </ul>
+              )}
+            </li>
+          </ul>
+
+          {/* Recent */}
+          <ul className="p-4 space-y-2 border-b border-gray-700">
+            <li>
+              <div
+                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                onClick={() => toggleSection("recent")}
+              >
+                <span className='text-gray-600 text-sm'>RECENT</span>
+                {expandedSections.recent ? <BiChevronUp /> : <BiChevronDown />}
+              </div>
+              {expandedSections.recent && (
+                <ul className="pl-4 space-y-2 text-sm">
+                  <li className="hover:bg-gray-700 p-2 rounded">Recent Item 1</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Recent Item 2</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Recent Item 3</li>
+                </ul>
+              )}
+            </li>
+          </ul>
+          
+          {/* Communities */}
+          <ul className="p-4 space-y-2 border-b border-gray-700">
+            <li>
+              <div
+                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                onClick={() => toggleSection("communities")}
+              >
+                <span className='text-gray-600 text-sm'>COMMUNITIES</span>
+                {expandedSections.communities ? <BiChevronUp /> : <BiChevronDown />}
+              </div>
+              {expandedSections.communities && (
+                <ul className="pl-4 space-y-2 text-sm">
+                  <li className="hover:bg-gray-700 p-2 rounded">Community Item 1</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Community Item 2</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Community Item 3</li>
+                </ul>
+              )}
+            </li>
+          </ul>
+          {/* Resources */}
+          <ul className="p-4 space-y-2 border-b border-gray-700">
+            <li>
+              <div
+                className="flex justify-between items-center hover:bg-gray-700 p-2 rounded cursor-pointer"
+                onClick={() => toggleSection("resources")}
+              >
+                <span className='text-gray-600 text-sm'>RESOURCES</span>
+                {expandedSections.resources ? <BiChevronUp /> : <BiChevronDown />}
+              </div>
+              {expandedSections.resources && (
+                <ul className="pl-4 space-y-2 text-sm">
+                  <li className="hover:bg-gray-700 p-2 rounded">Resource Item 1</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Resource Item 2</li>
+                  <li className="hover:bg-gray-700 p-2 rounded">Resource Item 3</li>
+                </ul>
+              )}
+            </li>
+          </ul>
+          {/* Bottom Section */}        
+          <ul className="p-4 space-y-2 text-sm">
+            <li className="hover:bg-gray-700 p-2 rounded">Communities</li>
+            <li className="hover:bg-gray-700 p-2 rounded">Best of Reddit</li>
+            <li className="hover:bg-gray-700 p-2 rounded">Topics</li>
+            <li className="hover:bg-gray-700 p-2 rounded">All</li>
+          </ul>
         </div>
         {/* Toggle Button */}
         <button
-          className="fixed flex justify-end items-center w-full -right-7 top-5 z-[1003] bg-gray- text-gray-600 p-2 rounded "
+          className="fixed flex justify-end items-center w-full -right-7 top-5 z-[1003] text-gray-800 p-2 rounded "
           onClick={toggleNavbar}>
-            <BiChevronLeftCircle size={40} />
+            {isOpen ? <BiChevronLeftCircle size={40} /> : <BiMenu size={40} />}
           </button>      
       </div>
     </div>
