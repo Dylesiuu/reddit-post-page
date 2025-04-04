@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-//import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
@@ -9,18 +8,6 @@ const font = Roboto({
   weight: ["400", "500", "600", "700", '800'],
   subsets: ["latin"],
 });
-
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 
 export const metadata: Metadata = {
   title: "Reddit - The heart of the internet",
@@ -40,7 +27,6 @@ export default function RootLayout({
       >
         <Navbar />
         <MobileNavbar/>
-
         {children}
       </body>
     </html>
