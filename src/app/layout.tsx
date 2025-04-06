@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
-import MobileNavbar from "./components/Navbar/MobileNavbar";
+import MobileNavbar from "./components/MobileNavbar/MobileNavbar";
 
 const font = Roboto({
   weight: ["400", "500", "600", "700", '800'],
