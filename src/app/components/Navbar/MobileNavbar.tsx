@@ -39,15 +39,16 @@ const MobileNavbar = () => {
 
       {/* Navbar */}
       <div
-        className={`fixed top-15 left-0 h-full w-64 bg-[var(--background)] border-r border-r-gray-800 text-white transform transition-transform duration-500 z-[1000] ${
+        className={`fixed left-0 top-[60px] h-[calc(100vh-60px)] w-64 bg-[var(--background)] border-r border-r-gray-800 text-white transform transition-transform duration-500 z-[1000] ${
           isOpen ? 'translate-x-0' : '-translate-x-58'
         }`}>
-        <div className='flex flex-col h-full justify-items-end w-full space-x-1 overflow-y-auto'>
-          {/* Top Section */}
-            <ul className="p-4 space-y-2 border-b border-gray-700 text-sm">
+        <div className="flex flex-col h-full justify-items-end w-full py-4 overflow-hidden hover:overflow-y-scroll">
+          <div className='pl-6 w-58 space-x-1'>
+            {/* Top Section */}
+            <ul className="space-y-2 border-b border-gray-700 text-sm">
             <li
               className={`p-2 rounded cursor-pointer ${
-                activeItem === "Home" ? "bg-gray-700" : "hover:bg-gray-800/25"
+                activeItem === "Home" ? "bg-gray-700 rounded-md" : "hover:bg-gray-800/25"
               }`}
               onClick={() => handleMenuClick("Home")}
             >
@@ -55,7 +56,7 @@ const MobileNavbar = () => {
             </li>
             <li
               className={`p-2 rounded cursor-pointer ${
-                activeItem === "Popular" ? "bg-gray-700" : "hover:bg-gray-800/25"
+                activeItem === "Popular" ? "bg-gray-700 rounded-md" : "hover:bg-gray-800/25 hover:rounded-md"
               }`}
               onClick={() => handleMenuClick("Popular")}
             >
@@ -63,7 +64,7 @@ const MobileNavbar = () => {
             </li>
             <li
               className={`p-2 rounded cursor-pointer ${
-                activeItem === "Explore" ? "bg-gray-700" : "hover:bg-gray-800/25"
+                activeItem === "Explore" ? "bg-gray-700 rounded-md" : "hover:bg-gray-800/25 hover:rounded-md"
               }`}
               onClick={() => handleMenuClick("Explore")}
             >
@@ -71,7 +72,7 @@ const MobileNavbar = () => {
             </li>
             <li
               className={`p-2 rounded cursor-pointer ${
-                activeItem === "All" ? "bg-gray-700" : "hover:bg-gray-800/25"
+                activeItem === "All" ? "bg-gray-700 rounded-md" : "hover:bg-gray-800/25 hover:rounded-md"
               }`}
               onClick={() => handleMenuClick("All")}
             >
@@ -87,7 +88,7 @@ const MobileNavbar = () => {
                 onClick={() => toggleSection("customFeeds")}
               >
                 <span className='text-gray-600 text-sm'>CUSTOM FEEDS</span>
-                {expandedSections.customFeeds ? <BiChevronUp /> : <BiChevronDown />}
+                {expandedSections.customFeeds ? <BiChevronUp size={25} /> : <BiChevronDown size={25} />}
               </div>
               {expandedSections.customFeeds && (
                 <ul className="pl-4 space-y-2 text-sm">
@@ -107,7 +108,7 @@ const MobileNavbar = () => {
                 onClick={() => toggleSection("recent")}
               >
                 <span className='text-gray-600 text-sm'>RECENT</span>
-                {expandedSections.recent ? <BiChevronUp /> : <BiChevronDown />}
+                {expandedSections.recent ? <BiChevronUp size={25} /> : <BiChevronDown size={25} />}
               </div>
               {expandedSections.recent && (
                 <ul className="pl-4 space-y-2 text-sm">
@@ -127,7 +128,7 @@ const MobileNavbar = () => {
                 onClick={() => toggleSection("communities")}
               >
                 <span className='text-gray-600 text-sm'>COMMUNITIES</span>
-                {expandedSections.communities ? <BiChevronUp /> : <BiChevronDown />}
+                {expandedSections.communities ? <BiChevronUp size={25}/> : <BiChevronDown size={25} />}
               </div>
               {expandedSections.communities && (
                 <ul className="pl-4 space-y-2 text-sm">
@@ -146,7 +147,7 @@ const MobileNavbar = () => {
                 onClick={() => toggleSection("resources")}
               >
                 <span className='text-gray-600 text-sm'>RESOURCES</span>
-                {expandedSections.resources ? <BiChevronUp /> : <BiChevronDown />}
+                {expandedSections.resources ? <BiChevronUp size={25} /> : <BiChevronDown size={25} />}
               </div>
               {expandedSections.resources && (
                 <ul className="pl-4 space-y-2 text-sm">
@@ -158,12 +159,13 @@ const MobileNavbar = () => {
             </li>
           </ul>
           {/* Bottom Section */}        
-          <ul className="p-4 space-y-2 text-sm">
+          <ul className=" space-y-2 text-sm">
             <li className="hover:bg-gray-800/25 p-2 rounded">Communities</li>
             <li className="hover:bg-gray-800/25 p-2 rounded">Best of Reddit</li>
             <li className="hover:bg-gray-800/25 p-2 rounded">Topics</li>
             <li className="hover:bg-gray-800/25 p-2 rounded">All</li>
           </ul>
+          </div>
         </div>
         {/* Toggle Button */}
         <button
