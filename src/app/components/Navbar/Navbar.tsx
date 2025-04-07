@@ -55,7 +55,7 @@ const Navbar = () => {
               <p className='text-white text-sm hidden sm:flex'>Create</p>
             </button>
           {/*Bell icon*/}
-            <button className='relative w-full max-w-md' onClick={handleNotificationClick}>
+            <button className='relative w-full max-w-md' onClick={handleNotificationClick} aria-label='Notifications'>
               <BiBell className='text-white' size={24} />
               {/* Notification Badge */}
               {notificationCount > 0 && (
