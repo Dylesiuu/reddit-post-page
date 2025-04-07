@@ -5,13 +5,14 @@ import Navbar from "./components/Navbar/Navbar";
 import MobileNavbar from "./components/MobileNavbar/MobileNavbar";
 
 const font = Roboto({
-  weight: ["400", "500", "600", "700", '800'],
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Reddit - The heart of the internet",
-  description: "Explore the best posts and discussions on Reddit, the front page of the internet.",
+  description:
+    "Explore the best posts and discussions on Reddit, the front page of the internet.",
 };
 
 export default function RootLayout({
@@ -19,14 +20,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
-      <body
-        className={`${font.className} antialiased`}
-      >
+      <body className={`${font.className} antialiased`}>
         <Navbar />
-        <MobileNavbar/>
+        <MobileNavbar />
         {children}
       </body>
     </html>
