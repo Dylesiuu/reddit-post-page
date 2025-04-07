@@ -60,7 +60,7 @@ describe("Navbar component", () => {
     const notificationButton = screen.getByRole("button", {
       name: /notifications/i,
     });
-    const notificationBadge = screen.queryByText(/5/i);
+    const notificationBadge = screen.getByLabelText(/notification-badge/i);
 
     expect(notificationBadge).toBeInTheDocument();
     expect(notificationButton).toBeInTheDocument();

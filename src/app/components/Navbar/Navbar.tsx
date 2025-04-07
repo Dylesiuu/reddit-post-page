@@ -81,7 +81,10 @@ const Navbar = () => {
             <BiBell className="text-white" size={24} />
             {/* Notification Badge */}
             {notificationCount > 0 && (
-              <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">
+              <span
+                aria-label="notification-badge"
+                className="absolute -top-1 -right-2 bg-red-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full"
+              >
                 {notificationCount}
               </span>
             )}
