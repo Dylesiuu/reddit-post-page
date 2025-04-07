@@ -58,6 +58,7 @@ const Navbar = () => {
         <div className="flex items-center sm:space-x-4 space-x-2">
           {/* Message Icon */}
           <button
+            aria-label="messages-button"
             className=" w-full max-w-md"
             onClick={() => alert("Messages")}
           >
