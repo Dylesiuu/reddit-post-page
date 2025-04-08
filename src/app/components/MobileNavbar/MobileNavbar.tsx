@@ -39,6 +39,7 @@ const MobileNavbar = () => {
     <div className="relative z-[1000]">
       {/* Overlay */}
       <div
+        aria-label="overlay"
         className={`fixed inset-0 bg-black/50 transition-opacity duration-500 z-[999] ${
           isOpen ? "opacity-100" : "opacity-0 invisible"
         }`}
@@ -47,6 +48,7 @@ const MobileNavbar = () => {
 
       {/* Navbar */}
       <div
+        aria-label="navbar"
         className={`fixed left-0 top-[60px] h-[calc(100vh-60px)] w-64 bg-[var(--background)] border-r border-r-gray-800 text-white transform transition-transform duration-500 z-[1000] ${
           isOpen ? "translate-x-0" : "-translate-x-58"
         }`}
@@ -86,6 +88,7 @@ const MobileNavbar = () => {
                 Explore
               </li>
               <li
+                aria-label="All"
                 className={`p-2 rounded cursor-pointer ${
                   activeItem === "All"
                     ? "bg-gray-700 rounded-md"
@@ -226,8 +229,13 @@ const MobileNavbar = () => {
         <button
           className="fixed flex justify-end items-center -right-7 top-5 z-[1003] text-gray-800 p-2 rounded "
           onClick={toggleNavbar}
+          aria-label="toggle-navbar"
         >
-          {isOpen ? <BiChevronLeftCircle size={40} /> : <BiMenu size={40} />}
+          {isOpen ? (
+            <BiChevronLeftCircle aria-label="BiChevronLeftCircle" size={40} />
+          ) : (
+            <BiMenu aria-label="BiMenu" size={40} />
+          )}
         </button>
       </div>
     </div>
