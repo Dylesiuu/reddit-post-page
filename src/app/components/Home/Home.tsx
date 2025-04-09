@@ -122,16 +122,18 @@ const Home = () => {
             </div>
             <h2 className="text-[17px] font-bold">{post.title}</h2>
             {/* Post Content */}
-            <div className=" flex w-[90%] h-[80%] mx-auto">
+            <div className=" flex w-[90%] h-[400px] mx-auto">
               {post.videoUrl ? (
-                <video
-                  className="w-full h-full rounded-lg object-cover"
-                  controls
-                  preload="metadata"
-                >
-                  <source src={post.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="flex w-full h-full justify-center">
+                  <video
+                    className="w-full h-full rounded-lg"
+                    controls
+                    preload="metadata"
+                  >
+                    <source src={post.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               ) : (
                 <div className="relative w-full h-full">
                   <Image
@@ -143,7 +145,7 @@ const Home = () => {
                       ]
                     }
                     width={400}
-                    height={400}
+                    height={500}
                     alt={`Post image ${post.id}`}
                     className="w-full h-full object-cover justify-center rounded-lg"
                   />
