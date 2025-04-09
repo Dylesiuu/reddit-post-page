@@ -114,15 +114,19 @@ const Home = () => {
         {mockPosts.map((post) => (
           <div
             key={post.id}
-            className="h-[80vh] w-[35vw] pb-2 border-t border-t-gray-800 bg-[var(--background)] space-y-1"
+            className="min-h-[400px] w-[35vw] border-t border-t-gray-800 bg-[var(--background)] space-y-1 mb-2"
           >
-            <div className="flex flex-col space-y-1">
-              <div className="text-gray-400 text-sm">{post.subbreddit}</div>
-              <div className="text-[12px]">{post.flair}</div>
+            <div className="flex flex-col space-y-1 pb-1">
+              {post.subbreddit ? (
+                <div className="text-gray-400 text-sm">{post.subbreddit}</div>
+              ) : null}
+              {post.flair ? (
+                <div className="text-[12px]">{post.flair}</div>
+              ) : null}
             </div>
             <h2 className="text-[17px] font-bold">{post.title}</h2>
             {/* Post Content */}
-            <div className=" flex w-[90%] h-[400px] mx-auto">
+            <div className="flex w-[90%] h-[300px] sm:h-[400px] lg:h-[450px] mx-auto mb-2">
               {post.videoUrl ? (
                 <div className="flex w-full h-full justify-center">
                   <video
@@ -135,7 +139,7 @@ const Home = () => {
                   </video>
                 </div>
               ) : (
-                <div className="relative w-full h-full">
+                <div className="relative w-full h-ful">
                   <Image
                     key={post.id}
                     src={
