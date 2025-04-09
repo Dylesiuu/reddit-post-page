@@ -109,16 +109,16 @@ const Home = () => {
   return (
     <div className="h-screen w-screen pt-[60px] overflow-y-auto justify-center">
       {/* Main Content */}
-      <div className="flex flex-col px-[calc(100vw/3)] space-y-6">
+      <div className="flex flex-col px-4 sm:px-8 md:px-16 lg:px-[calc(100vw/3)] mx-auto space-y-6">
         {/* Posts Cards*/}
         {mockPosts.map((post) => (
           <div
             key={post.id}
-            className="min-h-[400px] w-[35vw] border-t border-t-gray-800 bg-[var(--background)] mb-2"
+            className="min-h-[400px] min-w-[300px] border-t border-t-gray-800 bg-[var(--background)] mb-2"
           >
-            <div className=" hover:bg-gray-800/50 hover:rounded-xl mt-2 space-y-1">
+            <div className=" hover:bg-gray-800/50 hover:rounded-xl mt-2 px-[25px] space-y-1">
               {/* Post Header */}
-              <div className="flex flex-col space-y-1 py-1 px-[25px]">
+              <div className="flex flex-col space-y-1 py-1">
                 {post.subbreddit ? (
                   <div className="text-gray-400 text-sm">{post.subbreddit}</div>
                 ) : null}
@@ -128,7 +128,7 @@ const Home = () => {
                 <h2 className="text-[17px] font-bold">{post.title}</h2>
               </div>
               {/* Post Content */}
-              <div className="flex w-[90%] h-[300px] sm:h-[400px] lg:h-[450px] mx-auto mb-2">
+              <div className="flex h-[300px] sm:h-[400px] lg:h-[450px] mb-2">
                 {post.videoUrl ? (
                   <div className="flex w-full h-full justify-center">
                     <video
@@ -177,7 +177,7 @@ const Home = () => {
                 )}
               </div>
               {/*Likes, comments, etc*/}
-              <div className="flex justify-between items-center text-white text-sm py-2 px-[25px]">
+              <div className="flex justify-between items-center text-white text-sm py-2">
                 <div className="flex space-x-2">
                   {/* Likes and Dislikes */}
                   <span className="flex items-center space-x-2 bg-gray-800 rounded-4xl px-2 py-1">
