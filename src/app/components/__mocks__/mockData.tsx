@@ -38,7 +38,7 @@ export const mockPosts = [
     content: "Content of Post 3",
     imagesUrl: [],
     videoUrl:
-      "https://packaged-media.redd.it/9v7vu98uvcte1/pb/m2-res_640p.mp4?m=DASHPlaylist.mpd&v=1&e=1744066800&s=dd271348985a9d66bbd2eece436dd9c8a1463474",
+      "https://packaged-media.redd.it/jt0w4zalxlte1/pb/m2-res_640p.mp4?m=DASHPlaylist.mpd&v=1&e=1744333200&s=0dd161dcb9a57d8cc5c5b08e80f8807088631623#t=28.229465",
     likes: 0,
     dislikes: 0,
     comments: 0,
