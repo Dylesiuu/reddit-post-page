@@ -156,23 +156,28 @@ const Home = () => {
                       className="w-full h-full object-cover justify-center rounded-lg"
                     />
                     {/* Navigation Buttons */}
-                    <button
-                      onClick={() => handlePrevImageChange(post.id)}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-gray-800 rounded hover:bg-gray-600"
-                    >
-                      {"<"}
-                    </button>
-                    <button
-                      onClick={() => handleNextImageChange(post.id)}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-gray-800 rounded hover:bg-gray-600"
-                    >
-                      {">"}
-                    </button>
-                    <span className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-[12px] bg-gray-800 rounded-lg px-2 py-1">
-                      {(currentIndices.find((item) => item.postId === post.id)
-                        ?.currentImageIndex ?? 0) + 1}
-                      /{post.imagesUrl.length}
-                    </span>
+                    {post.imagesUrl.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => handlePrevImageChange(post.id)}
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-gray-800 rounded hover:bg-gray-600"
+                        >
+                          {"<"}
+                        </button>
+                        <button
+                          onClick={() => handleNextImageChange(post.id)}
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-gray-800 rounded hover:bg-gray-600"
+                        >
+                          {">"}
+                        </button>
+                        <span className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-[12px] bg-gray-800 rounded-lg px-2 py-1">
+                          {(currentIndices.find(
+                            (item) => item.postId === post.id,
+                          )?.currentImageIndex ?? 0) + 1}
+                          /{post.imagesUrl.length}
+                        </span>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
