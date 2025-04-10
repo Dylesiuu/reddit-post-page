@@ -38,7 +38,8 @@ const Home = () => {
               ...item,
               currentImageIndex:
                 (item.currentImageIndex + 1) %
-                mockPosts.find((post) => post.id === postId)?.imagesUrl.length,
+                (mockPosts.find((post) => post.id === postId)?.imagesUrl
+                  .length || 1),
             }
           : item,
       ),
@@ -56,7 +57,8 @@ const Home = () => {
                   1 +
                   (mockPosts.find((post) => post.id === postId)?.imagesUrl
                     ?.length || 0)) %
-                mockPosts.find((post) => post.id === postId)?.imagesUrl.length,
+                (mockPosts.find((post) => post.id === postId)?.imagesUrl
+                  .length || 1),
             }
           : item,
       ),
